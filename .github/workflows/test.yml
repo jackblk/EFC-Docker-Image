@@ -42,4 +42,5 @@ jobs:
           push: true
           file: Dockerfile.apprise
           tags: |
-            jackblk/test
+            ghcr.io/jackblk/epicgames-freebies-claimer:latest-apprise
+            jackblk/epicgames-freebies-claimer:latest-apprise
