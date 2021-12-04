@@ -32,7 +32,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set latest release version tag
-        run: echo "LATEST_VERSION_TAG=$(version=$(curl -s https://api.github.com/repos/Revadike/epicgames-freebies-claimer/releases | jq -r '.[0].tag_name') && echo "${version#V}")" >> $GITHUB_ENV
+        run: |
+          version_tagname=$(curl -s https://api.github.com/repos/Revadike/epicgames-freebies-claimer/releases | jq -r '.[0].tag_name')
+          echo "LATEST_VERSION_TAG=${version_tagname/[vV]/}" >> $GITHUB_ENV
 
       - name: Build and push main image
         uses: docker/build-push-action@v2
