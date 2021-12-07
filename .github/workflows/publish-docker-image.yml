@@ -49,15 +49,3 @@ jobs:
             jackblk/epicgames-freebies-claimer:latest
             jackblk/epicgames-freebies-claimer:${{ env.LATEST_VERSION_TAG }}
 
-      - name: Build and push apprise image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
-          push: true
-          file: Dockerfile.apprise
-          tags: |
-            ghcr.io/jackblk/epicgames-freebies-claimer:latest-apprise
-            ghcr.io/jackblk/epicgames-freebies-claimer:${{ env.LATEST_VERSION_TAG }}-apprise
-            jackblk/epicgames-freebies-claimer:latest-apprise
-            jackblk/epicgames-freebies-claimer:${{ env.LATEST_VERSION_TAG }}-apprise
